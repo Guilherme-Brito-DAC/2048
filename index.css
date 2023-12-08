@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+    --background: #faf8ef;
+
+    --button: #8f7a66;
+    --button-hover: #5e4c3c;
+
+    --font-color: #776e65;
+
+    --tile: #cdc1b4;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--background);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.titulo {
+    color: #444;
+    font-size: 40px;
+    margin-bottom: 1rem;
+}
+
+#mensagem {
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+#jogo {
+    position: relative;
+    background-color: #f9f8f8;
+}
+
+.informacoes-do-jogo {
+    color: #444;
+    background-color: #fff;
+    padding: 15px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-left: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.informacoes-do-jogo button {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: 10px;
+    width: 90%;
+    height: 40px;
+    background-color: var(--button);
+    color: #eee;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-size: 17px;
+    transition: background-color 0.6s ease;
+}
+
+.informacoes-do-jogo button:hover,
+#fim-de-jogo button:hover {
+    background-color: var(--button-hover);
+}
+
+.informacoes-do-jogo h1 {
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+#pontuacao {
+    padding: 10px;
+    border-radius: 5px;
+    background: #bbada0;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+}
+
+#pontuacao span {
+    font-size: 30px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: #bbada0;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.tile {
+    width: 100px;
+    color: var(--font-color);
+    height: 100px;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--tile);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.tile-2 {
+    background-color: #eee4da;
+    animation: pop 0.2s linear
+}
+
+.tile-4 {
+    background-color: #eee1c9;
+    animation: pop 0.2s linear
+}
+
+.tile-8 {
+    background-color: #f3b27a;
+    color: #f9f6f2;
+    animation: pop 0.2s linear;
+}
+
+.tile-16 {
+    background-color: #f69664;
+    color: #f9f6f2;
+    animation: pop 0.2s linear;
+}
+
+.tile-32 {
+    background-color: #eb7362;
+    color: #f9f6f2;
+    animation: pop 0.2s linear
+}
+
+.tile-64 {
+    background-color: #de4b3d;
+    color: #f9f6f2;
+    animation: pop 0.2s linear
+}
+
+.tile-128 {
+    background-color: #f2dd70;
+    color: #f9f6f2;
+    animation: pop 0.2s linear
+}
+
+.tile-256 {
+    background-color: #edcc61;
+    color: #f9f6f2;
+    animation: pop 0.2s linear
+}
+
+.tile-512 {
+    background-color: #f9ca58;
+    color: #f9f6f2;
+    animation: pop 0.2s linear
+}
+
+.tile-1024 {
+    background-color: #efc53f;
+    color: #f9f6f2;
+    animation: pop 0.2s linear
+}
+
+.tile-2048 {
+    color: #f9f6f2;
+    background-color: #edc22e;
+    animation: pop 0.2s linear
+}
+
+#fim-de-jogo {
+    display: none;
+    width: 460px;
+    height: 150px;
+    background-color: #f9f8f8;
+    z-index: 100;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.233) 0px 5px 20px 1px;
+    animation: bunceIn 1s linear;
+}
+
+#fim-de-jogo h1 {
+    margin-top: 10px;
+    color: var(--font-color);
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 5px;
+}
+
+#fim-de-jogo button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--button);
+    font-size: 19px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    transition: background-color 0.6s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+
+    }
+
+    60% {
+        transform: scale(.9);
+
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
